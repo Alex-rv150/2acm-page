@@ -1,5 +1,3 @@
-"use client";
-
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
@@ -30,9 +28,13 @@ function Wave() {
   );
 }
 
-export default function Header() {
+interface HeaderProps {
+  height: number;
+}
+
+export default function Header({ height }: HeaderProps) {
   return (
-    <div className="w-full h-[80vh] relative">
+    <div className={`w-full h-[${height}vh] relative`}>
       <Background />
       <div className="w-full h-full flex">
         <div className="w-full h-full"></div>

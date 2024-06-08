@@ -3,12 +3,37 @@ import Link from "next/link";
 import Logo from "@/assets/logo.png";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
   className?: string | undefined;
+  headerHeight?: number;
 }
 
-export default function Navbar({ className }: NavbarProps) {
+export default function Navbar({ className, headerHeight }: NavbarProps) {
+  const [pastHeader, setPastHeader] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!headerHeight) return;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY || window.pageYOffset;
+
+      if (scrollPosition > (headerHeight * window.innerHeight) / 100) {
+        console.log("User has scrolled past 80vh");
+        setPastHeader(true);
+      } else {
+        setPastHeader(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
     <nav className={cn(["w-full py-2 backdrop-blur z-50", className])}>
       <div className="container mx-auto flex justify-between items-center">
@@ -19,7 +44,12 @@ export default function Navbar({ className }: NavbarProps) {
             className="w-12 h-auto group-hover:brightness-125 transition"
           />
         </Link>
-        <div className="flex items-center gap-8">
+        <div
+          className={cn([
+            "flex items-center gap-8",
+            pastHeader ? "" : "text-white",
+          ])}
+        >
           <Link
             href="/"
             className="opacity-50 hover:opacity-100 transition text-sm"
