@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
+import Background from "./Background";
 
 function Wave() {
   const { resolvedTheme } = useTheme();
@@ -32,19 +33,25 @@ function Wave() {
 export default function Header() {
   return (
     <div className="w-full h-[80vh] relative">
-      <div className="w-full h-full bg-gray-500 absolute"></div>
+      <Background />
       <div className="w-full h-full flex">
         <div className="w-full h-full"></div>
         <div className="w-full h-full relative">
           <div className="title absolute bottom-[30vh] w-full select-none">
             <div className="flex items-center gap-6 w-full justify-center mb-5">
-              <Image src={Logo} alt="Logo" className="h-28 w-auto drop-shadow-xl"></Image>
+              <Image
+                src={Logo}
+                alt="Logo"
+                className="h-28 w-auto drop-shadow-xl"
+              ></Image>
               <h1 className="text-[#3b82f6] font-bold text-5xl drop-shadow-xl">
                 Capítulo estudiantil <br />
                 de Uninorte
               </h1>
             </div>
-            <p className="text-center drop-shadow-xl text-xl">Transformando el aprendizaje, creando el futuro</p>
+            <p className="text-center drop-shadow-xl text-xl text-white">
+              Transformando el aprendizaje, creando el futuro
+            </p>
           </div>
         </div>
       </div>
