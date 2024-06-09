@@ -3,6 +3,7 @@
 import Navbar from "@/components/Home/Navbar";
 import Header from "@/components/Home/Header";
 import About from "@/components/Home/About";
+import { Explore } from "@/components/Home/explore";
 
 export default function Home() {
   const headerHeight = 80; // Height in vh
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="">
       <Navbar className="fixed" headerHeight={headerHeight} />
       <Header height={headerHeight} />
+      <Explore headerHeight={headerHeight} />
       <About />
     </main>
   );
