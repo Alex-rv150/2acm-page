@@ -7,6 +7,7 @@ import { Explore } from "@/components/Home/explore";
 import Statistics from "@/components/Home/Statistics";
 import Board from "@/components/Home/Board";
 import Departments from "@/components/Home/Departments";
+import Events from "@/components/Home/Events";
 
 export default function Home() {
   const headerHeight = 80; // Height in vh
@@ -20,6 +21,7 @@ export default function Home() {
       <Statistics />
       <Board />
       <Departments />
+      <Events />
     </main>
   );
 }
