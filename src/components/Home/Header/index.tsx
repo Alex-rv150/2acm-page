@@ -39,26 +39,21 @@ export default function Header({ height }: HeaderProps) {
       /* Dynamic height: */ style={{ height: `${height}vh` }}
     >
       <Background />
-      <div className="w-full h-full flex">
-        <div className="w-full h-full"></div>
-        <div className="w-full h-full relative">
-          <div className="title absolute bottom-[30vh] w-full select-none">
-            <div className="flex items-center gap-6 w-full justify-center mb-5">
-              <Image
-                src={Logo}
-                alt="Logo"
-                className="h-28 w-auto drop-shadow-xl"
-              ></Image>
-              <h1 className="text-[#3b82f6] font-bold text-5xl drop-shadow-xl">
-                Capítulo estudiantil <br />
-                de Uninorte
-              </h1>
-            </div>
-            <p className="text-center drop-shadow-xl text-xl text-white">
-              Transformando el aprendizaje, creando el futuro
-            </p>
-          </div>
+      <div className="title w-full md:w-auto absolute select-none top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-auto md:left-auto md:right-[10vw] md:bottom-[20vh] md:-translate-x-0 md:-translate-y-0">
+        <div className="flex flex-col md:flex-row items-center gap-6 w-full justify-center mb-5">
+          <Image
+            src={Logo}
+            alt="Logo"
+            className="h-28 w-auto drop-shadow-xl"
+          ></Image>
+          <h1 className="text-white md:text-primary font-bold text-center text-3xl sm:text-4xl md:text-5xl drop-shadow-xl">
+            Capítulo estudiantil <br />
+            de Uninorte
+          </h1>
         </div>
+        <p className="text-center drop-shadow-xl text-md md:text-xl text-white">
+          Transformando el aprendizaje, creando el futuro
+        </p>
       </div>
       <Wave />
     </div>
