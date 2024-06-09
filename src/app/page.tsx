@@ -7,7 +7,7 @@ export default function Home() {
   const headerHeight = 80; // Height in vh
 
   return (
-    <main className="h-[2000px]">
+    <main className="">
       <Navbar className="fixed" headerHeight={headerHeight} />
       <Header height={headerHeight} />
     </main>

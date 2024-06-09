@@ -57,7 +57,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             Inicio
           </Link>
           <Link
-            href="/"
+            href="/#about"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
             Acerca de

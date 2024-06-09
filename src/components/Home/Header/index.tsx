@@ -34,7 +34,10 @@ interface HeaderProps {
 
 export default function Header({ height }: HeaderProps) {
   return (
-    <div className={`w-full h-[${height}vh] relative`}>
+    <div
+      className="w-full relative"
+      /* Dynamic height: */ style={{ height: `${height}vh` }}
+    >
       <Background />
       <div className="w-full h-full flex">
         <div className="w-full h-full"></div>
