@@ -8,6 +8,7 @@ import Statistics from "@/components/Home/Statistics";
 import Board from "@/components/Home/Board";
 import Departments from "@/components/Home/Departments";
 import Events from "@/components/Home/Events";
+import Contact from "@/components/Home/Contact";
 
 export default function Home() {
   const headerHeight = 80; // Height in vh
@@ -22,6 +23,7 @@ export default function Home() {
       <Board />
       <Departments />
       <Events />
+      <Contact />
     </main>
   );
 }

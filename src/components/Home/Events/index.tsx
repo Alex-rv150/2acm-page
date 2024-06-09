@@ -9,13 +9,13 @@ import { Calendar, Locate } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 // imgs
 import workshop_img from "@/assets/events/workshop.jpg";
 import talk_img from "@/assets/events/talk.jpg";
 import marathon_img from "@/assets/events/marathon.jpg";
 import project_img from "@/assets/events/project.jpg";
-import { useEffect, useRef } from "react";
 
 interface EventProps {
   img: StaticImageData;
