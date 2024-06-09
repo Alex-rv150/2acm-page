@@ -2,9 +2,15 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import Background from "./Background";
+import { useEffect, useState } from "react";
 
 function Wave() {
-  const { resolvedTheme } = useTheme();
+  const { theme } = useTheme();
+  const [fill, setlFill] = useState<string>("#fff");
+
+  useEffect(() => {
+    setlFill(theme == "light" ? "#fff" : "#020817");
+  }, [theme]);
 
   return (
     <svg
@@ -21,7 +27,7 @@ function Wave() {
       ></path>
       <path
         style={{ transform: "translate(0, 50px)", opacity: 1 }}
-        fill={resolvedTheme === "light" ? "#fff" : "#020817"}
+        fill={fill}
         d="M0,126L1440,84L2880,126L4320,42L5760,105L7200,63L8640,0L10080,0L11520,189L12960,147L14400,21L15840,147L17280,21L18720,168L20160,147L21600,84L23040,84L24480,42L25920,105L27360,168L28800,84L30240,42L31680,21L33120,42L34560,105L34560,210L33120,210L31680,210L30240,210L28800,210L27360,210L25920,210L24480,210L23040,210L21600,210L20160,210L18720,210L17280,210L15840,210L14400,210L12960,210L11520,210L10080,210L8640,210L7200,210L5760,210L4320,210L2880,210L1440,210L0,210Z"
       ></path>
     </svg>
@@ -35,7 +41,8 @@ interface HeaderProps {
 export default function Header({ height }: HeaderProps) {
   return (
     <div
-      className="w-full relative" id="header"
+      className="w-full relative"
+      id="header"
       /* Dynamic height: */ style={{ height: `${height}vh` }}
     >
       <Background />
