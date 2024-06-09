@@ -1,5 +1,9 @@
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 
 const oddVariants: Variants = {
   hide: {
@@ -48,7 +52,16 @@ function Members() {
       animate={control}
       variants={oddVariants}
     >
-      <span className="text-4xl md:text-5xl lg:text-6xl font-bold">+130</span>
+      <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-white flex">
+        +
+        <AnimatedNumbers
+          transitions={(index) => ({
+            type: "spring",
+            duration: index + 0.3,
+          })}
+          animateToNumber={130}
+        />
+      </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
         Miembros totales
       </p>
@@ -75,7 +88,15 @@ function Events() {
       animate={control}
       variants={evenVariants}
     >
-      <span className="text-4xl md:text-5xl lg:text-6xl font-bold">60</span>
+      <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-white">
+        <AnimatedNumbers
+          transitions={(index) => ({
+            type: "spring",
+            duration: index + 0.3,
+          })}
+          animateToNumber={60}
+        />
+      </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
         Eventos
       </p>
@@ -102,7 +123,15 @@ function Departments() {
       animate={control}
       variants={oddVariants}
     >
-      <span className="text-4xl md:text-5xl lg:text-6xl font-bold">10</span>
+      <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-white">
+        <AnimatedNumbers
+          transitions={(index) => ({
+            type: "spring",
+            duration: index + 0.3,
+          })}
+          animateToNumber={10}
+        />
+      </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
         Departamentos
       </p>

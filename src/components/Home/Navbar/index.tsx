@@ -28,7 +28,6 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
       const scrollPosition = window.scrollY || window.pageYOffset;
 
       if (scrollPosition > (headerHeight * window.innerHeight) / 100) {
-        console.log("User has scrolled past 80vh");
         setPastHeader(true);
       } else {
         setPastHeader(false);

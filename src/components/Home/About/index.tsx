@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 const textVariants: Variants = {
   hide: {
     opacity: 0,
-    x: -500,
+    x: -100,
   },
   show: {
     opacity: 1,
@@ -19,7 +19,7 @@ const textVariants: Variants = {
 const pointsVariants: Variants = {
   hide: {
     opacity: 0,
-    x: 500,
+    x: 100,
   },
   show: {
     opacity: 1,
