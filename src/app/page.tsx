@@ -5,6 +5,7 @@ import Header from "@/components/Home/Header";
 import About from "@/components/Home/About";
 import { Explore } from "@/components/Home/explore";
 import Statistics from "@/components/Home/Statistics";
+import Board from "@/components/Home/Board";
 import Departments from "@/components/Home/Departments";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Explore headerHeight={headerHeight} />
       <About />
       <Statistics />
+      <Board />
       <Departments />
     </main>
   );
