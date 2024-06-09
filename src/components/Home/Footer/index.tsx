@@ -1,7 +1,7 @@
 import Logo from "@/assets/logo.png";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { PiTiktokLogo, PiInstagramLogo } from "react-icons/pi";
 
 export default function Footer() {
   return (
@@ -17,17 +17,21 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="#" aria-label="Twitter" prefetch={false}>
-            <Twitter className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
+          <Link
+            href="https://www.instagram.com/acmuninorte"
+            aria-label="Instagram"
+            prefetch={false}
+            target="_blank"
+          >
+            <PiInstagramLogo className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
           </Link>
-          <Link href="#" aria-label="Facebook" prefetch={false}>
-            <Facebook className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
-          </Link>
-          <Link href="#" aria-label="Instagram" prefetch={false}>
-            <Instagram className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
-          </Link>
-          <Link href="#" aria-label="LinkedIn" prefetch={false}>
-            <Linkedin className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
+          <Link
+            href="https://www.tiktok.com/@acmuninorte"
+            aria-label="TikTok"
+            prefetch={false}
+            target="_blank"
+          >
+            <PiTiktokLogo className="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition" />
           </Link>
         </div>
         <p className="text-gray-500 dark:text-gray-400">
