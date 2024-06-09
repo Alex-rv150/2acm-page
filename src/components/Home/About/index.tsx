@@ -1,6 +1,7 @@
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { Award, Rocket, Smile, Users } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const textVariants: Variants = {
   hide: {
@@ -31,6 +32,8 @@ const pointsVariants: Variants = {
 };
 
 function Text() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -50,19 +53,18 @@ function Text() {
       variants={textVariants}
     >
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-        Acerca de nosotros
+        {t("about:title")}
       </h2>
       <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-        ACM Uninorte es un capítulo estudiantil en donde nuestro eje central es
-        la practica como medio para aprender más. Queremos rediseñar el
-        aprendizaje en aula y aportar conocimientos por fuera de la linea de
-        aprendizaje de la Universidad.
+        {t("about:desc")}
       </p>
     </motion.div>
   );
 }
 
 function Points() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -85,39 +87,36 @@ function Points() {
         <div className="flex items-center gap-4">
           <Award className="h-8 w-8 text-gray-500 dark:text-gray-400" />
           <div>
-            <h3 className="text-lg font-medium">Experiencia Estudiantil</h3>
+            <h3 className="text-lg font-medium">{t("about:point1_title")}</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              El grupo estudiantil ACM Uninorte se ha dedicado a promover el
-              aprendizaje.
+              {t("about:point1_desc")}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <Rocket className="h-8 w-8 text-gray-500 dark:text-gray-400" />
           <div>
-            <h3 className="text-lg font-medium">Enfoque Innovador</h3>
+            <h3 className="text-lg font-medium">{t("about:point2_title")}</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Exploramos constantemente nuevas tecnologías y técnicas.
+              {t("about:point2_desc")}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <Users className="h-8 w-8 text-gray-500 dark:text-gray-400" />
           <div>
-            <h3 className="text-lg font-medium">Equipo Diverso</h3>
+            <h3 className="text-lg font-medium">{t("about:point3_title")}</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Nuestro grupo está formado por estudiantes de diversas áreas de
-              interés.
+              {t("about:point3_desc")}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <Smile className="h-8 w-8 text-gray-500 dark:text-gray-400" />
           <div>
-            <h3 className="text-lg font-medium">Miembros Satisfechos</h3>
+            <h3 className="text-lg font-medium">{t("about:point4_title")}</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Nos enorgullece nuestra capacidad para brindar experiencias
-              educativas.
+              {t("about:point4_desc")}
             </p>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const nameInputVariants: Variants = {
   hide: {
@@ -20,6 +21,8 @@ const nameInputVariants: Variants = {
 };
 
 function NameInput() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -38,8 +41,13 @@ function NameInput() {
       animate={control}
       variants={nameInputVariants}
     >
-      <Label htmlFor="name">Nombre</Label>
-      <Input id="name" name="name" placeholder="Tu nombre" required />
+      <Label htmlFor="name">{t("contact:name_label")}</Label>
+      <Input
+        id="name"
+        name="name"
+        placeholder={t("contact:name_placeholder")}
+        required
+      />
     </motion.div>
   );
 }
@@ -59,6 +67,8 @@ const emailInputVariants: Variants = {
 };
 
 function EmailInput() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -77,12 +87,12 @@ function EmailInput() {
       animate={control}
       variants={emailInputVariants}
     >
-      <Label htmlFor="email">Correo</Label>
+      <Label htmlFor="email">{t("contact:email_label")}</Label>
       <Input
         id="email"
         name="email"
         type="email"
-        placeholder="Tu correo"
+        placeholder={t("contact:email_label")}
         required
       />
     </motion.div>
@@ -104,6 +114,8 @@ const messageInputVariants: Variants = {
 };
 
 function MessageInput() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -122,11 +134,11 @@ function MessageInput() {
       animate={control}
       variants={messageInputVariants}
     >
-      <Label htmlFor="message">Mensaje</Label>
+      <Label htmlFor="message">{t("contact:message_label")}</Label>
       <Textarea
         id="message"
         name="message"
-        placeholder="Tu mensaje"
+        placeholder={t("contact:message_label")}
         rows={5}
         required
       />
@@ -135,17 +147,18 @@ function MessageInput() {
 }
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="max-w-2xl mx-auto space-y-6 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Escribenos
+              {t("contact:title")}
             </h2>
             <p className="text-gray-500 dark:text-gray-400 md:text-xl">
-              Queremos saber de tus opiniones o inquietudes. Por favor, llena el
-              formulario y te estaremos contactando lo mas pronto posible.
+              {t("contact:desc")}
             </p>
           </div>
           <form className="space-y-4 text-left">
@@ -155,7 +168,7 @@ export default function Contact() {
             </div>
             <MessageInput />
             <Button type="submit" className="w-full sm:w-auto">
-              Enviar
+              {t("contact:submit")}
             </Button>
           </form>
         </div>

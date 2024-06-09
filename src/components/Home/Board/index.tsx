@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import { useTranslation } from "react-i18next";
 
 // imgs
 import president_img from "@/assets/high-board/president.jpg";
@@ -62,19 +63,29 @@ function Member({ name, role, img }: MemberProps) {
 }
 
 export default function Board() {
+  const { t } = useTranslation();
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <h3 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-        Junta directiva
+        {t("board:title")}
       </h3>
       <div className="container grid items-start justify-center gap-8 px-4 md:px-6 py-12 lg:grid-cols-3 lg:gap-12">
-        <Member name="Tabata Llach" role="Presidente" img={president_img} />
+        <Member
+          name="Tabata Llach"
+          role={t("board:president")}
+          img={president_img}
+        />
         <Member
           name="Santiago Heras"
-          role="Vicepresidente"
+          role={t("board:vicepresident")}
           img={vicepresident_img}
         />
-        <Member name="Johan Vergara" role="Secretario" img={secretary_img} />
+        <Member
+          name="Johan Vergara"
+          role={t("board:secretary")}
+          img={secretary_img}
+        />
       </div>
     </section>
   );

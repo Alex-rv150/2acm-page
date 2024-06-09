@@ -10,6 +10,7 @@ import Image, { StaticImageData } from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 // imgs
 import workshop_img from "@/assets/events/workshop.jpg";
@@ -72,6 +73,8 @@ const eventsVariants: Variants = {
 };
 
 export default function Events() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -92,7 +95,7 @@ export default function Events() {
       variants={eventsVariants}
     >
       <h3 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-        Eventos
+        {t("events:title")}
       </h3>
       <div className="container py-12">
         <div className="w-full max-w-5xl mx-auto">
@@ -108,29 +111,29 @@ export default function Events() {
             <CarouselContent>
               <Event
                 img={workshop_img}
-                name="Workshop"
-                desc="Aprende con proyecto guiados de la mano de estudiantes expertos y profesores de la decanatura."
+                name={t("events:workshop_title")}
+                desc={t("events:workshop_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />
               <Event
                 img={talk_img}
-                name="Charlas"
-                desc="Para incentivar la participación y escucha de los estudiantes con los temas más relevantes de la tecnología emergente y los videojuegos."
+                name={t("events:talk_title")}
+                desc={t("events:talk_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Auditorio"
               />
               <Event
                 img={marathon_img}
-                name="Maratones de Programación"
-                desc="Reta tus conocimientos y habilidades en estas competencias. Conoce a personas apasionadas por la tecnología."
+                name={t("events:marathon_title")}
+                desc={t("events:marathon_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />
               <Event
                 img={project_img}
-                name="Proyectos"
-                desc="Incentivamos la creación de proyectos independientes brindando el laboratorio y un equipo de trabajo increíble."
+                name={t("events:project_title")}
+                desc={t("events:project_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />

@@ -1,5 +1,6 @@
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import dynamic from "next/dynamic";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
   ssr: false,
@@ -34,6 +35,8 @@ const evenVariants: Variants = {
 };
 
 function Members() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -63,13 +66,15 @@ function Members() {
         />
       </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
-        Miembros totales
+        {t("statistics:total_members")}
       </p>
     </motion.div>
   );
 }
 
 function Events() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -98,13 +103,15 @@ function Events() {
         />
       </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
-        Eventos
+        {t("statistics:events")}
       </p>
     </motion.div>
   );
 }
 
 function Departments() {
+  const { t } = useTranslation();
+
   const control = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -133,7 +140,7 @@ function Departments() {
         />
       </span>
       <p className="text-gray-500 dark:text-gray-400 mt-2 md:mt-3 lg:mt-4">
-        Departamentos
+        {t("statistics:departments")}
       </p>
     </motion.div>
   );

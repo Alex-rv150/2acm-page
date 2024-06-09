@@ -57,11 +57,12 @@ export default function Header({ height }: HeaderProps) {
             className="h-28 w-auto drop-shadow-xl"
           ></Image>
           <h1 className="text-white md:text-primary font-bold text-center text-3xl sm:text-4xl md:text-5xl drop-shadow-xl">
-            {t("header:title")}
+            {t("header:title1")} <br />
+            {t("header:title2")}
           </h1>
         </div>
         <p className="text-center drop-shadow-xl text-md md:text-xl text-white">
-          Transformando el aprendizaje, creando el futuro
+          {t("header:subtitle")}
         </p>
       </div>
       <Wave />

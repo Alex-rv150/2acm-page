@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { motion, Variants, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 // Depts
 import investigations_img from "@/assets/depts/investigacion.jpeg";
@@ -70,68 +71,70 @@ function Department({ name, desc, img }: DepartmentProps) {
 }
 
 export default function Departments() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="departments"
       className="container mx-auto py-12 md:py-16 lg:py-20"
     >
       <h3 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-        Departmentos
+        {t("departments:title")}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 py-12">
         <Department
-          name="Investigación"
-          desc="Departamento encargado de la búsqueda de información y conocimiento."
+          name={t("departments:investigation_title")}
+          desc={t("departments:investigation_desc")}
           img={investigations_img}
         />
         <Department
-          name="Logística"
-          desc="Encargado de la gestión eficiente de recursos y distribución de eventos."
+          name={t("departments:logistic_title")}
+          desc={t("departments:logistic_desc")}
           img={logistics_img}
         />
         <Department
-          name="Maratones"
-          desc="Organiza eventos con los miembros de ACM."
+          name={t("departments:marathons_title")}
+          desc={t("departments:marathons_desc")}
           img={marathons_img}
         />
         <Department
-          name="Marketing"
-          desc="Encargado de promocionar y posicionar ACM en las redes sociales."
+          name={t("departments:marketing_title")}
+          desc={t("departments:marketing_desc")}
           img={marketing_img}
         />
         <Department
-          name="Mentoría"
-          desc="Brinda orientación y apoyo a individuos en su desarrollo academico."
+          name={t("departments:mentorship_title")}
+          desc={t("departments:mentorship_desc")}
           img={mentorship_img}
         />
         <Department
-          name="Presidencia"
-          desc="Encargado de liderar y tomar decisiones estratégicas en el grupo."
+          name={t("departments:president_title")}
+          desc={t("departments:president_desc")}
           img={presidency_img}
         />
         <Department
-          name="Vicepresidencia"
-          desc="Apoya al presidente en la toma de decisiones y en la gestión del grupo."
+          name={t("departments:vicepresident_title")}
+          desc={t("departments:vicepresident_desc")}
           img={vicepresidency_img}
         />
         <Department
-          name="Secretaría"
-          desc="Encargada de la gestión administrativa y documental del grupo."
+          name={t("departments:secretary_title")}
+          desc={t("departments:secretary_desc")}
           img={secretary_img}
         />
         <Department
-          name="Tesorería"
-          desc="Responsable de la gestión financiera y control de los recursos económicos."
+          name={t("departments:treasury_title")}
+          desc={t("departments:treasury_desc")}
           img={treasury_img}
         />
         <Department
-          name="Videojuegos"
-          desc="Desarrolla y produce actividades para el grupo con respecto a videojuegos."
+          name={t("departments:videogames_title")}
+          desc={t("departments:videogames_desc")}
           img={videogames_img}
         />
         <Department
-          name="Desarrollo web"
-          desc="Desarrolla y produce actividades para el grupo con respecto al desarrollo web."
+          name={t("departments:webdev_title")}
+          desc={t("departments:webdev_desc")}
           img={webdev_img}
         />
       </div>

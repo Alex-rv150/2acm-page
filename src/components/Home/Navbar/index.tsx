@@ -69,7 +69,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             href="#about"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            {t("navbar:about-us")}
+            {t("navbar:about_us")}
           </Link>
           <Link
             href="#departments"
@@ -112,7 +112,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Inicio
+                  {t("navbar:home")}
                 </Link>
               </SheetClose>
               <SheetClose asChild>
@@ -121,7 +121,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Acerca de
+                  {t("navbar:about_us")}
                 </Link>
               </SheetClose>
               <SheetClose asChild>
@@ -130,7 +130,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Departamentos
+                  {t("navbar:departments")}
                 </Link>
               </SheetClose>
               <SheetClose asChild>
@@ -139,7 +139,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Eventos
+                  {t("navbar:events")}
                 </Link>
               </SheetClose>
               <SheetClose asChild>
@@ -148,7 +148,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Únete
+                  {t("navbar:join-us")}
                 </Link>
               </SheetClose>
               <SheetClose asChild>
@@ -157,7 +157,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
                   className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Contáctanos
+                  {t("navbar:contact")}
                 </Link>
               </SheetClose>
               <div>
