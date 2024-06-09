@@ -92,7 +92,7 @@ function EmailInput() {
         id="email"
         name="email"
         type="email"
-        placeholder={t("contact:email_label")}
+        placeholder={t("contact:email_placeholder")}
         required
       />
     </motion.div>
@@ -138,7 +138,7 @@ function MessageInput() {
       <Textarea
         id="message"
         name="message"
-        placeholder={t("contact:message_label")}
+        placeholder={t("contact:message_placeholder")}
         rows={5}
         required
       />
