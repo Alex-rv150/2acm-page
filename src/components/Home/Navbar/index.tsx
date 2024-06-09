@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface NavbarProps {
   className?: string | undefined;
@@ -20,6 +21,7 @@ interface NavbarProps {
 
 export default function Navbar({ className, headerHeight }: NavbarProps) {
   const [pastHeader, setPastHeader] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!headerHeight) return;
@@ -61,37 +63,37 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             href="#header"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Inicio
+            {t("navbar:home")}
           </Link>
           <Link
             href="#about"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Acerca de
+            {t("navbar:about-us")}
           </Link>
           <Link
             href="#departments"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Departamentos
+            {t("navbar:departments")}
           </Link>
           <Link
             href="#events"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Eventos
+            {t("navbar:events")}
           </Link>
           <Link
             href="#"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Únete
+            {t("navbar:join-us")}
           </Link>
           <Link
             href="#contact"
             className="opacity-50 hover:opacity-100 transition text-sm"
           >
-            Contáctanos
+            {t("navbar:contact")}
           </Link>
           <ModeToggle />
         </div>

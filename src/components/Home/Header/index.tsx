@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import Background from "./Background";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Wave() {
   const { theme } = useTheme();
@@ -39,6 +40,8 @@ interface HeaderProps {
 }
 
 export default function Header({ height }: HeaderProps) {
+  const { t } = useTranslation();
+
   return (
     <div
       className="w-full relative"
@@ -54,8 +57,7 @@ export default function Header({ height }: HeaderProps) {
             className="h-28 w-auto drop-shadow-xl"
           ></Image>
           <h1 className="text-white md:text-primary font-bold text-center text-3xl sm:text-4xl md:text-5xl drop-shadow-xl">
-            Capítulo estudiantil <br />
-            de Uninorte
+            {t("header:title")}
           </h1>
         </div>
         <p className="text-center drop-shadow-xl text-md md:text-xl text-white">
