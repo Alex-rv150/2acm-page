@@ -1,11 +1,49 @@
+import { Variants, motion } from "framer-motion";
 import { Award, Rocket, Smile, Users } from "lucide-react";
+
+const textVariants: Variants = {
+  hide: {
+    opacity: 0,
+    x: -500,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 2,
+    },
+  },
+};
+
+const pointsVariants: Variants = {
+  hide: {
+    opacity: 0,
+    x: 500,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 2,
+    },
+  },
+};
 
 export default function About() {
   return (
-    <section id="about" className="w-full py-12 md:py-24 lg:py-32">
+    <section
+      id="about"
+      className="w-full py-12 md:py-24 lg:py-32 overflow-hidden"
+    >
       <div className="container px-4 md:px-6">
         <div className="grid gap-10 sm:px-10 md:gap-16 lg:grid-cols-2">
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-4"
+            initial="hide"
+            whileInView="show"
+            exit="hide"
+            variants={textVariants}
+          >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
               Acerca de nosotros
             </h2>
@@ -15,8 +53,14 @@ export default function About() {
               rediseñar el aprendizaje en aula y aportar conocimientos por fuera
               de la linea de aprendizaje de la Universidad.
             </p>
-          </div>
-          <div className="space-y-4">
+          </motion.div>
+          <motion.div
+            className="space-y-4"
+            initial="hide"
+            whileInView="show"
+            exit="hide"
+            variants={pointsVariants}
+          >
             <div className="grid gap-4">
               <div className="flex items-center gap-4">
                 <Award className="h-8 w-8 text-gray-500 dark:text-gray-400" />
@@ -60,7 +104,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
