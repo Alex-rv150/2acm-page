@@ -1,4 +1,5 @@
 import { ModeToggle } from "@/components/ownui/theme-toggle";
+import { LanguageSwitch } from "@/components/ownui/language-switch";
 import Link from "next/link";
 import Logo from "@/assets/logo.png";
 import Image from "next/image";
@@ -96,6 +97,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             {t("navbar:contact")}
           </Link>
           <ModeToggle />
+          <LanguageSwitch />
         </div>
         <Sheet>
           <SheetTrigger asChild>
@@ -162,6 +164,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               </SheetClose>
               <div>
                 <ModeToggle />
+                <LanguageSwitch />
               </div>
             </div>
           </SheetContent>
