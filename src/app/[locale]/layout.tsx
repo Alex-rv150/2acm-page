@@ -23,6 +23,7 @@ const namespaces = [
   "departments",
   "events",
   "contact",
+  "footer",
 ];
 
 export default async function RootLayout({
