@@ -2,6 +2,7 @@ import { ModeToggle } from "@/components/ownui/theme-toggle";
 import { LanguageSwitch } from "@/components/ownui/language-switch";
 import Link from "next/link";
 import Logo from "@/assets/logo.png";
+import Logo2 from "@/assets/logo2.png";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -45,64 +46,75 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
   });
 
   return (
-    <nav className={cn(["w-full py-2 backdrop-blur z-50", className])}>
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="group">
+    <nav className="flex flex-col items-center justify-center w-full md:px-5 md:pt-5 bg-none md:bg-[#FBFCFF]">
+      <div className="flex w-full px-5 justify-between items-center">
+        <div className="hidden md:flex items-center text-[#000000] gap-16">
+          <Link
+            href="#contact"
+            className="hover:text-[#a5e2ff] transition text-sm"
+          >
+            {t("navbar:contact")}
+          </Link>
+          <Link
+            href="#about"
+            className="hover:text-[#a5e2ff] transition text-sm"
+          >
+            {t("navbar:about_us")}
+          </Link>
+
+        </div>
+        <Link href="/" className="group md:hidden">
           <Image
             alt="Logo"
-            src={Logo}
+            src={Logo2}
             className="w-12 h-auto group-hover:brightness-125 transition"
           />
         </Link>
         <div
           className={cn([
             "items-center gap-8 hidden md:flex",
-            pastHeader ? "" : "text-white",
+            pastHeader ? "" : "text-[#424242]",
           ])}
         >
-          <Link
+          {/* <Link
             href="#header"
-            className="opacity-50 hover:opacity-100 transition text-sm"
+            className="hover:text-[#a5e2ff] transition text-sm"
           >
             {t("navbar:home")}
           </Link>
-          <Link
-            href="#about"
-            className="opacity-50 hover:opacity-100 transition text-sm"
-          >
-            {t("navbar:about_us")}
-          </Link>
+          
           <Link
             href="#departments"
-            className="opacity-50 hover:opacity-100 transition text-sm"
+            className="hover:text-[#a5e2ff] transition text-sm"
           >
             {t("navbar:departments")}
           </Link>
           <Link
             href="#events"
-            className="opacity-50 hover:opacity-100 transition text-sm"
+            className="hover:text-[#a5e2ff] transition text-sm"
           >
             {t("navbar:events")}
           </Link>
           <Link
             href="#"
-            className="opacity-50 hover:opacity-100 transition text-sm"
+            className="hover:text-[#a5e2ff] transition text-sm"
           >
             {t("navbar:join-us")}
-          </Link>
-          <Link
-            href="#contact"
-            className="opacity-50 hover:opacity-100 transition text-sm"
-          >
-            {t("navbar:contact")}
-          </Link>
-          <ModeToggle />
+          </Link> */}
+          
+          {/* <ModeToggle /> */}
           <LanguageSwitch />
+          <Button className="bg-[#057DCD] hover:bg-[#a5e2ff] text-white font-semibold rounded-[8px] px-9 py-2 transition">
+            <Link href="#join" className="text-white">
+              {t("navbar:join-us")}
+            </Link>
+          </Button>
         </div>
+
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden">
-              <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+            <Button variant="outline" size="icon" className="md:hidden bg-transparent border-none">
+              <Menu className="h-6 w-6 text-[#FBFCFF] dark:text-gray-300" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
@@ -111,7 +123,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#header"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:home")}
@@ -120,7 +132,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#about"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:about_us")}
@@ -129,7 +141,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#departments"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:departments")}
@@ -138,7 +150,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#events"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:events")}
@@ -147,7 +159,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#join"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:join-us")}
@@ -156,7 +168,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               <SheetClose asChild>
                 <Link
                   href="#contact"
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
+                  className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >
                   {t("navbar:contact")}
@@ -169,6 +181,31 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             </div>
           </SheetContent>
         </Sheet>
+      </div>
+      <div className="hidden md:flex items-center justify-center">
+      <Link href="/" className="group">
+          <Image
+            alt="Logo"
+            src={Logo}
+            className="w-12 h-auto group-hover:brightness-125 transition"
+          />
+        </Link>
+      </div>
+
+      <div className="hidden md:flex w-full h-[60px] border-gray-200 border-t-[1px] items-center justify-center mx-4 mt-5">
+          
+            <Link href="#header" className="flex items-center justify-center w-[150px] h-full text-[#000000] hover:bg-[#057dcd12] transition text-sm">
+              {t("navbar:home")}
+            </Link>
+            <Link href="#about" className="flex items-center justify-center w-[150px] h-full text-[#000000] hover:bg-[#057dcd12] transition text-sm">
+              {t("navbar:about_us")}
+            </Link>
+            <Link href="#departments" className="flex items-center justify-center w-[150px] h-full text-[#000000] hover:bg-[#057dcd12] transition text-sm">
+              {t("navbar:departments")}
+            </Link>
+            <Link href="#events" className="flex items-center justify-center w-[150px] h-full text-[#000000] hover:bg-[#057dcd12] transition text-sm">
+              {t("navbar:events")}
+            </Link>
       </div>
     </nav>
   );
