@@ -70,12 +70,26 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
             className="w-12 h-auto group-hover:brightness-125 transition"
           />
         </Link>
+        <div className="hidden md:flex items-center justify-center">
+      <Link href="/" className="group">
+          <Image
+            alt="Logo"
+            src={Logo}
+            className="w-12 h-auto group-hover:brightness-125 transition"
+          />
+        </Link>
+      </div>
         <div
           className={cn([
             "items-center gap-8 hidden md:flex",
             pastHeader ? "" : "text-[#424242]",
           ])}
         >
+
+
+
+
+
           {/* <Link
             href="#header"
             className="hover:text-[#a5e2ff] transition text-sm"
@@ -182,15 +196,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
           </SheetContent>
         </Sheet>
       </div>
-      <div className="hidden md:flex items-center justify-center">
-      <Link href="/" className="group">
-          <Image
-            alt="Logo"
-            src={Logo}
-            className="w-12 h-auto group-hover:brightness-125 transition"
-          />
-        </Link>
-      </div>
+   
 
       <div className="hidden md:flex w-full h-[60px] border-gray-200 border-t-[1px] items-center justify-center mx-4 mt-5">
           
