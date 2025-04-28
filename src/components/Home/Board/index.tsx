@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import president_img from "@/assets/high-board/president.jpg";
 import vicepresident_img from "@/assets/high-board/vicepresident.jpg";
 import secretary_img from "@/assets/high-board/secretary.jpg";
+import treasurer_img from "@/assets/high-board/treasurer.jpg";
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -66,23 +67,28 @@ export default function Board() {
   const { t } = useTranslation();
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section className="w-full py-12 md:py-24 md:py-32">
       <h3 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
         {t("board:title")}
       </h3>
-      <div className="container grid items-start justify-center gap-8 px-4 md:px-6 py-12 lg:grid-cols-3 lg:gap-12">
+      <div className="container grid items-start justify-center gap-8 px-4 md:px-6 py-12 md:grid-cols-2 lg:gap-12">
         <Member
-          name="Tabata Llach"
+          name="Jesús Cantillo"
           role={t("board:president")}
           img={president_img}
         />
         <Member
-          name="Santiago Heras"
+          name="Judith Perez"
           role={t("board:vicepresident")}
           img={vicepresident_img}
         />
         <Member
           name="Johan Vergara"
+          role={t("board:treasurer")}
+          img={treasurer_img}
+        />
+        <Member
+          name="Maria Osorno"
           role={t("board:secretary")}
           img={secretary_img}
         />
