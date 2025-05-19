@@ -1,0 +1,14 @@
+{
+  "title": "Eventos",
+  "back_home": "Volver al inicio",
+  "upcoming_events": "Próximos Eventos",
+  "past_events": "Eventos Pasados",
+  "workshop_title": "Taller de Desarrollo Web",
+  "workshop_desc": "Aprende las últimas tecnologías web y mejora tus habilidades de desarrollo.",
+  "talk_title": "Charlas Técnicas",
+  "talk_desc": "Sesiones informativas sobre las últimas tendencias en tecnología y desarrollo.",
+  "marathon_title": "Maratón de Programación",
+  "marathon_desc": "Competencia de programación donde podrás demostrar tus habilidades y ganar premios.",
+  "project_title": "Presentación de Proyectos",
+  "project_desc": "Muestra tus proyectos y recibe retroalimentación de expertos en el campo."
+} 

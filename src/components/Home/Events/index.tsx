@@ -11,6 +11,8 @@ import Autoplay from "embla-carousel-autoplay";
 import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 // imgs
 import workshop_img from "@/assets/events/workshop.jpg";
@@ -73,7 +75,7 @@ const eventsVariants: Variants = {
 };
 
 export default function Events() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("events");
 
   const control = useAnimation();
   const ref = useRef(null);
@@ -95,7 +97,7 @@ export default function Events() {
       variants={eventsVariants}
     >
       <h3 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-        {t("events:title")}
+        {t("title")}
       </h3>
       <div className="container py-12">
         <div className="w-full max-w-5xl mx-auto">
@@ -111,29 +113,29 @@ export default function Events() {
             <CarouselContent>
               <Event
                 img={workshop_img}
-                name={t("events:workshop_title")}
-                desc={t("events:workshop_desc")}
+                name={t("workshop_title")}
+                desc={t("workshop_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />
               <Event
                 img={talk_img}
-                name={t("events:talk_title")}
-                desc={t("events:talk_desc")}
+                name={t("talk_title")}
+                desc={t("talk_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Auditorio"
               />
               <Event
                 img={marathon_img}
-                name={t("events:marathon_title")}
-                desc={t("events:marathon_desc")}
+                name={t("marathon_title")}
+                desc={t("marathon_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />
               <Event
                 img={project_img}
-                name={t("events:project_title")}
-                desc={t("events:project_desc")}
+                name={t("project_title")}
+                desc={t("project_desc")}
                 date="Septiembre 20-22, 2023"
                 location="Bloque K, piso 6"
               />
@@ -141,6 +143,16 @@ export default function Events() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+          <div className="flex justify-center mt-8">
+            <Button 
+              className="bg-[#057dcd] hover:bg-[#a5e2ff] text-white font-semibold rounded-[8px] px-9 py-2 transition"
+              asChild
+            >
+              <Link href="/events">
+                {t("view_all")}
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </motion.section>

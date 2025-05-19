@@ -119,7 +119,7 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
           {/* <ModeToggle /> */}
           <LanguageSwitch />
           <Button className="bg-[#057DCD] hover:bg-[#a5e2ff] text-white font-semibold rounded-[8px] px-9 py-2 transition">
-            <Link href="#join" className="text-white">
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSfQcdyieBiJGZpuji94iv6OcvFzQY0-ud3198G9q-1OSMTehA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" className="text-white">
               {t("navbar:join-us")}
             </Link>
           </Button>
@@ -172,7 +172,9 @@ export default function Navbar({ className, headerHeight }: NavbarProps) {
               </SheetClose>
               <SheetClose asChild>
                 <Link
-                  href="#join"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfQcdyieBiJGZpuji94iv6OcvFzQY0-ud3198G9q-1OSMTehA/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-black hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50"
                   prefetch={false}
                 >

@@ -1,0 +1,14 @@
+{
+  "title": "Events",
+  "back_home": "Back to Home",
+  "upcoming_events": "Upcoming Events",
+  "past_events": "Past Events",
+  "workshop_title": "Web Development Workshop",
+  "workshop_desc": "Learn the latest web technologies and improve your development skills.",
+  "talk_title": "Technical Talks",
+  "talk_desc": "Informative sessions about the latest trends in technology and development.",
+  "marathon_title": "Programming Marathon",
+  "marathon_desc": "Programming competition where you can showcase your skills and win prizes.",
+  "project_title": "Project Showcase",
+  "project_desc": "Show your projects and receive feedback from field experts."
+} 

@@ -15,10 +15,10 @@ import i18nConfig from "@/next-i18next.config.mjs";
 import { Icon } from "lucide-react";
 
 export function LanguageSwitch() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
-  const currentPathname = usePathname();
+  const pathname = usePathname();
 
   const languageNames: Record<string, string> = {
     en: "English",
@@ -26,11 +26,7 @@ export function LanguageSwitch() {
     it: "Italiano",
   };
 
-
-
-  const handleChange = (lang: string) => {
-    const newLocale = lang;
-
+  const handleChange = async (newLocale: string) => {
     // set cookie for next-i18n-router
     const days = 30;
     const date = new Date();
@@ -38,18 +34,15 @@ export function LanguageSwitch() {
     const expires = date.toUTCString();
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
-    // redirect to the new locale path
-    if (
-      currentLocale === i18nConfig.defaultLocale &&
-      !i18nConfig.prefixDefault
-    ) {
-      router.push("/" + newLocale + currentPathname);
-    } else {
-      router.push(
-        currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
-      );
-    }
+    // Change the language in i18n
+    await i18n.changeLanguage(newLocale);
 
+    // redirect to the new locale path
+    const segments = pathname.split('/');
+    segments[1] = newLocale; // Replace the locale segment
+    const newPath = segments.join('/');
+    
+    router.push(newPath);
     router.refresh();
   };
 
@@ -61,28 +54,13 @@ export function LanguageSwitch() {
           className="flex bg-transparent border-none gap-4 items-center hover:bg-[#FBFCFF] hover:text-[#a5e2ff] transition-none"
         >
           <img 
-          src="https://img.icons8.com/?size=100&id=30633&format=png&color=16243B" 
-          width="25" 
-          height="25"
+            src="https://img.icons8.com/?size=100&id=30633&format=png&color=16243B" 
+            width="25" 
+            height="25"
+            alt="Language"
           />
-          {/* Agregar un icono */}
-          
           <span className="sr-only">Switch language</span>
           {languageNames[currentLocale] ?? currentLocale}
-          {/* <ReactCountryFlag
-            countryCode={
-              currentLocale === "zh"
-                ? "cn"
-                : currentLocale === "en"
-                ? "us"
-                : currentLocale
-            }
-            style={{
-              width: "1.6em",
-              height: "1.6em",
-            }}
-            svg
-          /> */}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -90,44 +68,20 @@ export function LanguageSwitch() {
           onClick={() => handleChange("en")}
           className="flex items-center gap-2"
         >
-          {/* <ReactCountryFlag countryCode="us" svg /> */}
           <span>English</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => handleChange("es")}
           className="flex items-center gap-2"
         >
-          {/* <ReactCountryFlag countryCode="es" svg /> */}
           <span>Español</span>
         </DropdownMenuItem>
-        {/* <DropdownMenuItem
-          onClick={() => handleChange("de")}
-          className="flex items-center gap-2"
-        >
-          {/* <ReactCountryFlag countryCode="de" svg /> */}
-          {/* <span>Deutsch</span> */}
-        {/* </DropdownMenuItem> */}
-        {/* <DropdownMenuItem */}
-          {/* onClick={() => handleChange("fr")} */}
-          {/* className="flex items-center gap-2" */}
-        {/* > */}
-          {/* <ReactCountryFlag countryCode="fr" svg /> */}
-          {/* <span>Français</span> */}
-        {/* </DropdownMenuItem> */}
         <DropdownMenuItem
           onClick={() => handleChange("it")}
           className="flex items-center gap-2"
         >
-          {/* <ReactCountryFlag countryCode="it" svg /> */}
           <span>Italiano</span>
         </DropdownMenuItem>
-        {/* <DropdownMenuItem
-          onClick={() => handleChange("zh")}
-          className="flex items-center gap-2"
-        >
-          <ReactCountryFlag countryCode="cn" svg />
-          <span>中文</span>
-        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );
